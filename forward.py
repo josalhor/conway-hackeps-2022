@@ -15,8 +15,12 @@ class Matrix:
         return Matrix(matrix)
     
     def print(self):
+        def map_c(x):
+            # could change representation character
+            # here if we wanted to
+            return x
         for line in self.matrix:
-            line = ''.join(line)
+            line = ''.join(map(map_c, line))
             print(line)
     
     def neighbours(self, i, j):
@@ -57,7 +61,7 @@ def main():
     import argparse
     parser = argparse.ArgumentParser(description='Cogway Game of Life visualizer')
     parser.add_argument('path', help='Path to the starting point of the game of life')
-    parser.add_argument('iterations', nargs='?', type=int, default=123, help='Number of forward iterations in the game of life')
+    parser.add_argument('iterations', nargs='?', type=int, default=99, help='Number of forward iterations in the game of life')
     parser.add_argument('-mode', '-m', choices=['automatic', 'manual'], default='automatic', help='Operation mode for the visualizer')
     args = parser.parse_args()
     

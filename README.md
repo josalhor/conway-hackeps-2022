@@ -1,20 +1,40 @@
-# Pattern
+# Introduction
 
-You can find the proposed pattern in backwards/hackeps_g_2
+## First of all. Where is your input file?
 
-# Where did I find inspiration?
+The input file is `input.cog`
 
-I mean.. It's clear, isn't it?
+Which looks like this:
 
-We are participating in the HACKEPS 2022!
+![alt text](images/input.png)
 
-SO LET'S FREAKING MAKE HACKEPS 2022 HAPPEN IN GAME OF LIFE!
+## Why is this pattern interesting?
+
+NO SPOILERS! JUST RUN THE PROJECT AND YOU WILL SEE.
+
+## OK OK. How do I run your project?
+
+1- Open up a terminal and `cd` to the root of this repository
+2- Widen your terminal (maximize it!).
+3- Check that your terminal is big enough. You should be able to run `cat input.cog` without line wrapping.
+4.1- Run the project in automatic mode:
+
+```
+> python3 forward.py input.cog
+```
+
+4.2- Run the project in manual mode:
+```
+> python3 forward.py -m manual input.cog
+```
 
 # Wait, what the hell, how did u... do that? HOW DOES THAT WORK? WHAT KIND OF BLACK MAGIC IS THIS?
 
 Okay, calm down u crazy. I'll explain it to you.
 
 My idea was to create something with the HACKEPS 2022 letters.
+
+So, I said to myself,  LET'S FREAKING MAKE HACKEPS 2022 HAPPEN IN GAME OF LIFE!
 
 So the first thing I did was try to create a stable verson of the letters. Here are some prototypes:
 
@@ -27,15 +47,38 @@ This was a VERY tedious and VERY LONG process. Here are some of the tools and we
 - https://conwaylife.com/wiki/Still_life
 
 
-Then I created the `merge_side.py` script that allowed me to merge all of the patters together.
+Then I created the `merge_side.py` script that allowed me to merge all of the patters together. You can find more info in `Makefile`.
 
 You can find the patters in `patterns/`. After merging them I ended up with `patters/hackeps`.
 
 If all the individual patterns for the layers are stable, their concatenation (with enough spacing) is also stable! So the final pattern is stable! :)
 
-But wait! There is more! When this was done, I decided to get really fancy. So I added a fancy horizontal glider in the pattern!
+# WAIT WAIT WAIT. YOU ARE AVOIDING THE QUESTION YOU CRAZY BASTARD! THE SOLUTION YOU HAVE PROVIDED LEADS TO THE FINAL PATTERN AND NOT THE OTHER WAY AROUND!!!! HOW DID YOU DO THAT??
 
-The problem is, sliders go sideways! So I needed to do some research to found horizontal sliders.
+Well. Magic. Also called SATisfiability solvers!
+
+As you may know Game of Life is not reversible: https://en.wikipedia.org/wiki/Reversible_cellular_automaton#Critters
+
+This means that while you can always move forwards, in game of life you cannot move backwards! For instance, imagine trying to move backwards from an empty board, the ammount of solutions is infinite! Even if the size of the board is fixed, moving backwards is exponentially complex.
+
+However, with enough compute power, enough [scientific literature research](https://link.springer.com/chapter/10.1007/978-3-540-76928-6_63), the [right tools](https://github.com/flopp/gol-sat) and the right [SAT solver](https://github.com/conp-solutions/mergesat) you can make (almost) everything possible!
+
+So what I did was reverse the pattern as much as possible without my computer exploding! And that's it!
+
+# Please explain it to me like I am 5 years old
+
+Gotcha. So the idea is:
+- Make fancy stable characters (See `patterns`)
+- Merge them so they make a fancy stable pattern (See `merge_side.py` and `Makefile`) 
+- The stable pattern gets codified into (Conjunctive Normal Form)[https://en.wikipedia.org/wiki/Conjunctive_normal_form]. You can find the codified problem in `problem.cnf`
+- The problem gets solved with a SAT solver (example: `./mergesat-binary problem.cnf`)
+- The solution gets reinterpreted as cells (each cell and each iteration gets mapped to a boolean variable) and made representable in `input.cog`
+
+# What is that thing that moves? A ... butterfly? A Mosquitto? 
+
+When this was done, I decided to get really fancy. So I added a fancy horizontal glider in the pattern!
+
+The problem is, sliders usually go sideways! So I needed to do some research to found cool horizontal sliders.
 
 Turns out there is a generalization of sliders called `Spaceshisps`: https://conwaylife.com/wiki/Spaceship
 
@@ -43,20 +86,10 @@ And a particular version of a spaceship, called `Schick engine` works perfectly 
 
 In particular this small version works pretty well: https://catagolue.hatsya.com/object/xq12_fh1i0i1hfzw8sms8zxfjf/b3s23/
 
-# WAIT WAIT WAIT. YOU ARE AVOIDING THE QUESTION YOU CRAZY BASTARD! THE SOLUTION YOU HAVE PROVIDED LEADS TO THE FINAL PATTERN AND NOT THE OTHER WAY AROUND!!!! HOW DID YOU DO THAT??
+And yes, that shape is very similar to a .... P.... Pe.... perhaps it looks similar to Jeff Bezo's rocket?
 
-Well. Magic. Also called SATisfiability engines!
+![alt text](images/rocket.webp)
 
-As you may know Game of Life is not reversible: https://en.wikipedia.org/wiki/Reversible_cellular_automaton#Critters
-
-This means that while you can always move forwards, you may not always move backwards! There are states from which you cannot move backwards (it's impossible). 
-
-Moreover, one of the most common situtations is that the number of states to move backwards is VERY big (exponentially so).
-
-However, with enough compute power, enough [literature research](https://link.springer.com/chapter/10.1007/978-3-540-76928-6_63), the [right tools](https://github.com/flopp/gol-sat) and the right [SAT solver](https://github.com/conp-solutions/mergesat) you can make everything possible!
-
-So what I did was reverse the pattern as much as possible without my computer exploding with a timelimit of an hour! And that's it!
-
-I hope you like it! :D
+I hope you liked the project! :D
 
 - Josep Maria Salvia Hornos
