@@ -20,12 +20,12 @@ NO SPOILERS! JUST RUN THE PROJECT AND YOU WILL SEE.
 4.1- Run the project in automatic mode:
 
 ```
-> python3 forward.py input.cog
+> python3 game.py input.cog
 ```
 
 4.2- Run the project in manual mode:
 ```
-> python3 forward.py -m manual input.cog
+> python3 game.py -m manual input.cog
 ```
 
 # Wait, what the hell, how did u... do that? HOW DOES THAT WORK? WHAT KIND OF BLACK MAGIC IS THIS?
