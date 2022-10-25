@@ -90,6 +90,27 @@ And yes, that shape is very similar to a .... P.... Pe.... perhaps it looks simi
 
 ![alt text](images/rocket.webp)
 
+# THIS IS CRAZYYYYYYYYYYYYY
+
+BUT WAIT!!!
+
+THERE IS MORE!!!
+
+RUN THE FOLLOWING COMMANDS:
+
+```
+python3 -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
+python3 game.py -m manual -v opengl input.cog
+```
+
+![alt text](images/opengl.png)
+
+# WAIT WHAT???
+
+I programmed Game of Life in OpenGL for fun. Yes. I did it. If you run it with `python3 game.py -m manual -v opengl input.cog` it will update on each keyboard press. if you run it without `-m manual` it will run automatically.
+
 I hope you liked the project! :D
 
 - Josep Maria Salvia Hornos
