@@ -14,16 +14,16 @@ NO SPOILERS! JUST RUN THE PROJECT AND YOU WILL SEE.
 
 ## OK OK. How do I run your project?
 
-1- Open up a terminal and `cd` to the root of this repository
-2- Widen your terminal (maximize it!).
-3- Check that your terminal is big enough. You should be able to run `cat input.cog` without line wrapping.
-4.1- Run the project in automatic mode:
+1. Open up a terminal and `cd` to the root of this repository
+2. Widen your terminal (maximize it!).
+3. Check that your terminal is big enough. You should be able to run `cat input.cog` without line wrapping.
+4. Run the project in automatic mode:
 
 ```
 > python3 game.py input.cog
 ```
 
-4.2- Run the project in manual mode:
+5. Run the project in manual mode:
 ```
 > python3 game.py -m manual input.cog
 ```
@@ -53,7 +53,7 @@ You can find the patters in `patterns/`. After merging them I ended up with `pat
 
 If all the individual patterns for the layers are stable, their concatenation (with enough spacing) is also stable! So the final pattern is stable! :)
 
-# WAIT WAIT WAIT. YOU ARE AVOIDING THE QUESTION YOU CRAZY BASTARD! THE SOLUTION YOU HAVE PROVIDED LEADS TO THE FINAL PATTERN AND NOT THE OTHER WAY AROUND!!!! HOW DID YOU DO THAT??
+# WAIT WAIT WAIT. YOU ARE AVOIDING THE QUESTION YOU CRAZY BASTARD! THE SOLUTION YOU HAVE PROVIDED LEADS TO THE FINAL PATTERN!!!! HOW DID YOU DO THAT??
 
 Well. Magic. Also called SATisfiability solvers!
 
@@ -69,8 +69,8 @@ So what I did was reverse the pattern as much as possible without my computer ex
 
 Gotcha. So the idea is:
 - Make fancy stable characters (See `patterns`)
-- Merge them so they make a fancy stable pattern (See `merge_side.py` and `Makefile`) 
-- The stable pattern gets codified into (Conjunctive Normal Form)[https://en.wikipedia.org/wiki/Conjunctive_normal_form]. You can find the codified problem in `problem.cnf`
+- Merge them so they make a fancy stable pattern (See `merge_side.py`, `Makefile` and `patterns/hackeps`) 
+- The stable pattern gets codified into [Conjunctive Normal Form](https://en.wikipedia.org/wiki/Conjunctive_normal_form). You can find the codified problem in `problem.cnf`
 - The problem gets solved with a SAT solver (example: `./mergesat-binary problem.cnf`)
 - The solution gets reinterpreted as cells (each cell and each iteration gets mapped to a boolean variable) and made representable in `input.cog`
 
@@ -110,6 +110,8 @@ python3 game.py -m manual -v opengl input.cog
 # WAIT WHAT???
 
 I programmed Game of Life in OpenGL for fun. Yes. I did it. If you run it with `python3 game.py -m manual -v opengl input.cog` it will update on each keyboard press. if you run it without `-m manual` it will run automatically.
+
+![alt text](images/opengl2.png)
 
 I hope you liked the project! :D
 
