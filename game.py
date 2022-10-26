@@ -59,7 +59,7 @@ def clear_screen():
 
 def main():
     import argparse
-    parser = argparse.ArgumentParser(description='Cogway Game of Life visualizer')
+    parser = argparse.ArgumentParser(description='Conway Game of Life visualizer')
     parser.add_argument('path', help='Path to the starting point of the game of life')
     parser.add_argument('iterations', nargs='?', type=int, default=99, help='Number of forward iterations in the game of life')
     parser.add_argument('-mode', '-m', choices=['automatic', 'manual'], default='automatic', help='Operation mode for the visualizer')
