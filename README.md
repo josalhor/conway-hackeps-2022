@@ -74,22 +74,6 @@ Gotcha. So the idea is:
 - The problem gets solved with a SAT solver (example: `./mergesat-binary problem.cnf`)
 - The solution gets reinterpreted as cells (each cell and each iteration gets mapped to a boolean variable) and made representable in `input.cog`
 
-# What is that thing that moves? A ... butterfly? A Mosquitto? 
-
-When this was done, I decided to get really fancy. So I added a fancy horizontal glider in the pattern!
-
-The problem is, sliders usually go sideways! So I needed to do some research to found cool horizontal sliders.
-
-Turns out there is a generalization of sliders called `Spaceshisps`: https://conwaylife.com/wiki/Spaceship
-
-And a particular version of a spaceship, called `Schick engine` works perfectly in the remaining space of the pattern for HackEPS 2020: https://conwaylife.com/wiki/Schick_engine
-
-In particular this small version works pretty well: https://catagolue.hatsya.com/object/xq12_fh1i0i1hfzw8sms8zxfjf/b3s23/
-
-And yes, that shape is very similar to a .... P.... Pe.... perhaps it looks similar to Jeff Bezo's rocket?
-
-![alt text](images/rocket.webp)
-
 # THIS IS CRAZYYYYYYYYYYYYY
 
 BUT WAIT!!!
@@ -112,6 +96,23 @@ python3 game.py -m manual -v opengl input.cog
 I programmed Game of Life in OpenGL for fun. Yes. I did it. If you run it with `python3 game.py -m manual -v opengl input.cog` it will update on each keyboard press. if you run it without `-m manual` it will run automatically.
 
 ![alt text](images/opengl2.png)
+
+
+# What is that thing that moves? A ... butterfly? A Mosquitto? 
+
+When this was done, I decided to get really fancy. So I added a fancy horizontal glider in the pattern!
+
+The problem is, sliders usually go sideways! So I needed to do some research to found cool horizontal sliders.
+
+Turns out there is a generalization of sliders called `Spaceshisps`: https://conwaylife.com/wiki/Spaceship
+
+And a particular version of a spaceship, called `Schick engine` works perfectly in the remaining space of the pattern for HackEPS 2020: https://conwaylife.com/wiki/Schick_engine
+
+In particular this small version works pretty well: https://catagolue.hatsya.com/object/xq12_fh1i0i1hfzw8sms8zxfjf/b3s23/
+
+And yes, that shape is very similar to a .... P.... Pe.... perhaps it looks similar to Jeff Bezo's rocket?
+
+![alt text](images/rocket.webp)
 
 I hope you liked the project! :D
 
